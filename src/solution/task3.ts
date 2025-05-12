@@ -1,7 +1,7 @@
 import { Clinician } from "../starter-code/clinician";
 import { Patient } from "../starter-code/patient";
 import { AvailableAssessmentSlotPair } from "../starter-code/appointment";
-import { maximizeAppointmentSlotsForDuration } from "./task2";
+import { maximizeAvailableAppointmentSlotsForDuration } from "./task2";
 import { MOCK_CLINICIANS_DATA } from "./mock-data";
 import { findAvailableAssessmentSlots_SlidingWindow } from "./task1";
 import {
@@ -16,7 +16,7 @@ import { ClinicianTypeEnum } from "../starter-code/clinician";
  * @param patient to find AvailableAssessmentSlots for
  * @returns all possible AvailableAssessmentSlots that the patient can book with each clinician psychologist.
  */
-export function getValidAvailableAssessmentSlots(
+export function findValidAvailableAssessmentSlotPairsForPatient(
   patient: Patient
 ): Map<string, AvailableAssessmentSlotPair[]> {
   // Initialize Map of clinician ID -> availalble assessment time pairs that will be returned as the final output.
@@ -45,11 +45,11 @@ export function getValidAvailableAssessmentSlots(
         weekMap
       );
 
-    // get the possible assessment slots that this patient could schedule for this clinician.
+    // Get the possible assessment slots that this patient could schedule for this clinician. Uses the function from Task 1
     const availableAssessmentSlots: AvailableAssessmentSlotPair[] =
       findAvailableAssessmentSlots_SlidingWindow(validAvailableAppointments);
 
-    // Ensure any assessment slot pairs fon't exceed the clinician's weekly capacity if the pair times fall on the same week!
+    // Ensure any assessment slot pairs don't exceed the clinician's weekly capacity if the pair times fall on the same week!
     const validAssessmentSlots: AvailableAssessmentSlotPair[] =
       ensureAssessmentSlotPairsDontExceedWeekCapacity(
         clinician,
@@ -133,12 +133,12 @@ export function applyDayAndWeekMaximumsToClinicianAvailableAppointments(
 
   // Maximize the # of available appointment slots this clinician can offer using our work from Task 2.
   if (clinician.clinicianType === ClinicianTypeEnum.PSYCHOLOGIST) {
-    dates = maximizeAppointmentSlotsForDuration(
+    dates = maximizeAvailableAppointmentSlotsForDuration(
       dates,
       PSYCHOLOGIST_APPOINTMENT_LENGTH
     );
   } else {
-    dates = maximizeAppointmentSlotsForDuration(
+    dates = maximizeAvailableAppointmentSlotsForDuration(
       dates,
       THERAPIST_APPOINTMENT_LENGTH
     );

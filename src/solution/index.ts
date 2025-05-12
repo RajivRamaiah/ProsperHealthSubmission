@@ -1,6 +1,6 @@
-import { findAvailableAssessmentSlotsForPatient } from "./task1";
-import { maximizeAppointmentSlotsForDuration } from "./task2";
-import { getValidAvailableAssessmentSlots } from "./task3";
+import { findAvailableAssessmentSlotPairsForPatient } from "./task1";
+import { maximizeAvailableAppointmentSlotsForDuration } from "./task2";
+import { findValidAvailableAssessmentSlotPairsForPatient } from "./task3";
 import { patient } from "../starter-code/mock-patient";
 
 // NOTE: Task 1 and Task 3 solutions assume that something like MOCK_CLINICIANS_DATA is available, which is an array of Clinician objects.
@@ -11,7 +11,7 @@ import { patient } from "../starter-code/mock-patient";
 // Note that this function uses the "MOCK_CLINICIANS_DATA" from mock-data.ts.
 console.log(
   "Task 1 Example: \n",
-  findAvailableAssessmentSlotsForPatient(patient)
+  findAvailableAssessmentSlotPairsForPatient(patient)
 );
 
 /*
@@ -85,7 +85,7 @@ const testDates = MOCK_SIMPLE_SLOT_DATES.map((slot) => new Date(slot));
 // Call maximizeAppointmentSlotsForDuration on the testDates array with a duration of 90 minutes!
 console.log(
   "\nTask 2 Example: \n",
-  maximizeAppointmentSlotsForDuration(testDates, 90)
+  maximizeAvailableAppointmentSlotsForDuration(testDates, 90)
 );
 
 /*  
@@ -97,7 +97,7 @@ console.log(
 */
 
 // TEST TASK 3 SOLUTION
-console.log("\nTask 3 Example: \n", getValidAvailableAssessmentSlots(patient));
+console.log("\nTask 3 Example: \n", findValidAvailableAssessmentSlotPairsForPatient(patient));
 
 /*
 ^   This should log only two valid assessment slot pairs for Jane Doe where the 

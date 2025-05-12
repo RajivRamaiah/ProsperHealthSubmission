@@ -1,4 +1,4 @@
-const { maximizeAppointmentSlotsForDuration } = require("../solution/task2");
+const { maximizeAvailableAppointmentSlotsForDuration } = require("../solution/task2");
 
 const TEST_DATE_STRINGS = [
   "2024-08-19T12:00:00.000Z",
@@ -25,7 +25,7 @@ const EXPECTED_OUTPUT_DATES = EXPECTED_OUTPUT_STRINGS.map(
 );
 
 test(" Task 2 - Test on Example Input", () => {
-  const MAXIMIZED_SLOTS = maximizeAppointmentSlotsForDuration(TEST_DATES, 90);
+  const MAXIMIZED_SLOTS = maximizeAvailableAppointmentSlotsForDuration(TEST_DATES, 90);
   expect(MAXIMIZED_SLOTS).toEqual(EXPECTED_OUTPUT_DATES);
 });
 
@@ -36,7 +36,7 @@ const TEST_DATES_TWO = [];
 const EXPECTED_OUTPUT_DATES_TWO = [];
 
 test("Task 2 - Empty Case Test", () => {
-  const MAXIMIZED_SLOTS = maximizeAppointmentSlotsForDuration(
+  const MAXIMIZED_SLOTS = maximizeAvailableAppointmentSlotsForDuration(
     TEST_DATES_TWO,
     90
   );
@@ -69,7 +69,7 @@ const EXPECTED_OUTPUT_DATES_THREE = EXPECTED_OUTPUT_STRINGS_THREE.map(
 );
 
 test("Task 2 - No Maximization Possible", () => {
-  const MAXIMIZED_SLOTS = maximizeAppointmentSlotsForDuration(
+  const MAXIMIZED_SLOTS = maximizeAvailableAppointmentSlotsForDuration(
     TEST_DATES_THREE,
     90
   );
@@ -88,7 +88,7 @@ const EXPECTED_OUTPUT_DATES_FOUR = EXPECTED_OUTPUT_STRINGS_FOUR.map(
 
 
 test("Task 2 - Duration of 60 Mins", () => {
-  const MAXIMIZED_SLOTS = maximizeAppointmentSlotsForDuration(
+  const MAXIMIZED_SLOTS = maximizeAvailableAppointmentSlotsForDuration(
     TEST_DATES,
     60
   );

@@ -2,7 +2,6 @@ import { AvailableAppointmentSlot } from "../starter-code/appointment";
 import { Clinician } from "../starter-code/clinician";
 import { Patient } from "../starter-code/patient";
 import { MOCK_CLINICIANS_DATA } from "./mock-data";
-import { maximizeAppointmentSlotsForDuration } from "./task2";
 import { AvailableAssessmentSlotPair } from "../starter-code/appointment";
 
 /**
@@ -16,7 +15,7 @@ import { AvailableAssessmentSlotPair } from "../starter-code/appointment";
  * checks that they are a psychologist and support the patients insurance/state,
  * and returns all possible assessment slot pairs that the patient can book with the clincian
  */
-export function findAvailableAssessmentSlotsForPatient(
+export function findAvailableAssessmentSlotPairsForPatient(
   patient: Patient
 ): Map<string, AvailableAssessmentSlotPair[]> {
   const availableSlotsByClinician = new Map<
