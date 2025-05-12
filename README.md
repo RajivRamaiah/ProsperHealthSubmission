@@ -11,7 +11,7 @@ The `src/solution` folder contains my solution to tasks 1, 2, and 3.
 - `mock-data.ts` contains an array of clinician objects, `MOCK_CLINICIANS_DATA` as mock data that I assumed was available to use to run my code on.
 - `index.ts` is the "entrypoint."
   - This is a script that you can run to test each of the main functions from task 1, 2, and 3. It uses the mock patient data from the starter code, and the MOCK_CLINICIANS_DATA from `mock-data.ts` to run the functions.
-  - Run this using `npx ts-node src/solution/index.ts`
+  - Run this using `npx ts-node src/solution/index.ts` after you `npm install`
 
 ---
 
@@ -19,6 +19,7 @@ The `src/tests` folder contains two tests I wrote for the functions I created fo
 
 - `task1.test.ts` tests the `findAvailableAssessmentSlots_SlidingWindow` function from `task1.ts`.
 - `task2.test.ts` tests the `maximizeAvailableAppointmentSlotsForDuration` function from `task2.ts`.
+- Run these using `npm test` after you `npm install`
 
 ---
 
