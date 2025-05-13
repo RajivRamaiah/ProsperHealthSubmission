@@ -96,8 +96,8 @@ export function countUpcomingAppointmentsForClinician(
       dayMap.set(day, dayCount! + 1);
 
       //gets the YYYY-MM-DD string for the start of the week for the appointment to use as the key for the week map. Updates count.
-      const weekStarDate = getStartOfWeekDate(apptDate);
-      const weekStartString = getDayString(weekStarDate);
+      const weekStartDate = getStartOfWeekDate(apptDate);
+      const weekStartString = getDayString(weekStartDate);
       if (!weekMap.has(weekStartString)) {
         weekMap.set(weekStartString, 0);
       }
